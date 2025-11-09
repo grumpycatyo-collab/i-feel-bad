@@ -9,4 +9,6 @@
 
 *"Believe in me, who believes in YOU" ~ Kamina*<br>
 
+*It's ok to rest...*
 
+Don't *overthink* too much, your mind sometimes might be *against* you
