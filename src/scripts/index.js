@@ -4,14 +4,26 @@ export function initTextRotation(sentences) {
 
 	function updateText() {
 		if (textDisplay) {
-			textDisplay.textContent = sentences[currentIndex];
-			currentIndex = (currentIndex + 1) % sentences.length;
+			// Fade out
+			textDisplay.style.opacity = '0';
+
+			// Wait for fade out to complete, then change text
+			setTimeout(() => {
+				textDisplay.textContent = sentences[currentIndex];
+				currentIndex = (currentIndex + 1) % sentences.length;
+
+				// Fade in
+				textDisplay.style.opacity = '1';
+			}, 1000); // Match the CSS transition duration
 		}
 	}
 
 	// Display first sentence immediately
-	updateText();
+	if (textDisplay) {
+		textDisplay.textContent = sentences[currentIndex];
+		currentIndex = (currentIndex + 1) % sentences.length;
+	}
 
-	// Change text every 3 seconds
-	setInterval(updateText, 3000);
+	// Change text every 2 seconds
+	setInterval(updateText, 2000);
 }
