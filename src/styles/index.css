@@ -27,12 +27,14 @@ h1 {
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	opacity: 0;
+	letter-spacing: 0.02em;
 }
 
 h1 em {
 	font-family: 'Victor Mono', monospace;
 	font-style: italic;
 	font-weight: 400;
+	font-size: 0.95em;
 }
 
 h1.fade-out {
