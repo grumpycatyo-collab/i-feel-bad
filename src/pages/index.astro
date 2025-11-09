@@ -1,5 +1,6 @@
 ---
 import '../styles/index.css';
+import '../styles/gradient.css';
 import * as sentencesFile from '../data/sentences.md';
 
 // Get the compiled HTML content
@@ -23,6 +24,25 @@ const sentences = rawSentences.map((html: string) => {
 		<title>Astro</title>
 	</head>
 	<body>
+		<div class="gradient-bg">
+			<svg xmlns="http://www.w3.org/2000/svg">
+				<defs>
+					<filter id="goo">
+						<feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+						<feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8" result="goo" />
+						<feBlend in="SourceGraphic" in2="goo" />
+					</filter>
+				</defs>
+			</svg>
+			<div class="gradients-container">
+				<div class="gradient-blob g1"></div>
+				<div class="gradient-blob g2"></div>
+				<div class="gradient-blob g3"></div>
+				<div class="gradient-blob g4"></div>
+				<div class="gradient-blob g5"></div>
+				<div class="gradient-blob interactive"></div>
+			</div>
+		</div>
 		<button id="theme-toggle" aria-label="Toggle dark mode">
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sun-icon">
 				<circle cx="12" cy="12" r="5"></circle>
@@ -49,6 +69,7 @@ const sentences = rawSentences.map((html: string) => {
 	<script>
 		import { initTextRotation } from '../scripts/index.js';
 		import { initTheme, toggleTheme } from '../scripts/theme.js';
+		import { initGradient } from '../scripts/gradient.js';
 
 		// Initialize theme on page load
 		initTheme();
@@ -58,6 +79,9 @@ const sentences = rawSentences.map((html: string) => {
 		if (themeToggle) {
 			themeToggle.addEventListener('click', toggleTheme);
 		}
+
+		// Initialize gradient background
+		initGradient();
 
 		// Initialize text rotation
 		initTextRotation((window as any).sentences);

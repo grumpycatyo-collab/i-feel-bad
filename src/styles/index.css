@@ -2,25 +2,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Victor+Mono:ital@1&display=swap');
 
 :root {
-	--bg-color: white;
-	--text-color: black;
+	--text-color: #2c3e50;
 }
 
 body[data-theme='dark'] {
-	--bg-color: #0a0a0a;
 	--text-color: #e5e5e5;
 }
 
 body {
 	margin: 0;
 	padding: 0;
-	background-color: var(--bg-color);
 	color: var(--text-color);
 	height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	transition: background-color 0.3s ease, color 0.3s ease;
+	overflow: hidden;
 }
 
 .text_container {
@@ -28,6 +25,8 @@ body {
 	padding: 1rem;
 	max-width: 90vw;
 	width: 100%;
+	position: relative;
+	z-index: 10;
 }
 
 h1 {
