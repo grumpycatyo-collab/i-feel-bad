@@ -1,5 +1,5 @@
 ---
-
+import '../styles/index.css';
 ---
 
 <html lang="en">
@@ -12,33 +12,13 @@
 	</head>
 	<body>
 		<div class="text_container">
-			<h1>Hello World</h1>
+			<h1 id="text-display"></h1>
 		</div>
 	</body>
-	<style>
-		body {
-			margin: 0;
-			padding: 0;
-			background-color: white;
-			height: 100vh;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-		}
+	<script>
+		import { initTextRotation } from '../scripts/index.js';
+		import sentencesData from '../data/sentences.json';
 
-		.text_container {
-			text-align: center;
-			padding: 1rem;
-			max-width: 90vw;
-			width: 100%;
-		}
-
-		h1 {
-			color: black;
-			margin: 0;
-			font-size: clamp(1.5rem, 5vw, 3rem);
-			word-wrap: break-word;
-			overflow-wrap: break-word;
-		}
-	</style>
+		initTextRotation(sentencesData.sentences);
+	</script>
 </html>
