@@ -1,9 +1,12 @@
-*Hello* World
+*It must've been hard, I know.*<br>
+*But you should keep going, because I believe in you man! Sincerely...*
 
-*Welcome* to our page
+*Keep* trying your best, buddy. *It fits you!*
 
-Have a *great* day
+*Love you*, man!
 
-Keep *moving* forward
+*WHO THE HELL DO YOU THINK I AM?*
 
-*You're doing amazing*
+*"Believe in me, who believes in YOU" ~ Kamina*<br>
+
+

@@ -9,8 +9,9 @@ const sentencesContent = await sentencesFile.compiledContent();
 // Split by paragraph tags to get individual sentences
 const rawSentences = sentencesContent.split('</p>').filter((s: string) => s.trim());
 
-// Parse the HTML sentences - remove <p> tags and clean up
+// Parse the HTML sentences - remove <p> tags but keep <br> tags for newlines
 const sentences = rawSentences.map((html: string) => {
+	// Remove opening <p> tag and trim, but preserve <br> tags
 	return html.replace(/<p>/g, '').trim();
 }).filter((s: string) => s);
 ---
