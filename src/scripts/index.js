@@ -1,27 +1,57 @@
+import { animate } from 'motion';
+
 export function initTextRotation(sentences) {
 	let currentIndex = 0;
 	const textDisplay = document.getElementById('text-display');
 
-	function updateText() {
+	async function updateText() {
 		if (textDisplay) {
-			// Fade out
-			textDisplay.style.opacity = '0';
+			// Animate fade out
+			await animate(
+				textDisplay,
+				{
+					opacity: 0
+				},
+				{
+					duration: 0.5,
+					easing: 'ease-in-out'
+				}
+			).finished;
 
-			// Wait for fade out to complete, then change text
-			setTimeout(() => {
-				textDisplay.textContent = sentences[currentIndex];
-				currentIndex = (currentIndex + 1) % sentences.length;
+			// Change text
+			textDisplay.textContent = sentences[currentIndex];
+			currentIndex = (currentIndex + 1) % sentences.length;
 
-				// Fade in
-				textDisplay.style.opacity = '1';
-			}, 1000); // Match the CSS transition duration
+			// Animate fade in
+			await animate(
+				textDisplay,
+				{
+					opacity: 1
+				},
+				{
+					duration: 0.5,
+					easing: 'ease-in-out'
+				}
+			).finished;
 		}
 	}
 
-	// Display first sentence immediately
+	// Display first sentence immediately with entrance animation
 	if (textDisplay) {
 		textDisplay.textContent = sentences[currentIndex];
 		currentIndex = (currentIndex + 1) % sentences.length;
+
+		// Initial entrance animation
+		animate(
+			textDisplay,
+			{
+				opacity: [0, 1]
+			},
+			{
+				duration: 0.5,
+				easing: 'ease-in-out'
+			}
+		);
 	}
 
 	// Change text every 2 seconds

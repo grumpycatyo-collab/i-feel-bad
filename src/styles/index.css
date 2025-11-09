@@ -21,8 +21,7 @@ h1 {
 	font-size: clamp(1.5rem, 5vw, 3rem);
 	word-wrap: break-word;
 	overflow-wrap: break-word;
-	opacity: 1;
-	transition: opacity 1s ease-in-out;
+	opacity: 0;
 }
 
 h1.fade-out {
