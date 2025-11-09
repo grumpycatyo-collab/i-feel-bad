@@ -18,8 +18,8 @@ export function initTextRotation(sentences) {
 				}
 			).finished;
 
-			// Change text
-			textDisplay.textContent = sentences[currentIndex];
+			// Change text with HTML (supports <em> tags from markdown)
+			textDisplay.innerHTML = sentences[currentIndex];
 			currentIndex = (currentIndex + 1) % sentences.length;
 
 			// Animate fade in
@@ -38,7 +38,7 @@ export function initTextRotation(sentences) {
 
 	// Display first sentence immediately with entrance animation
 	if (textDisplay) {
-		textDisplay.textContent = sentences[currentIndex];
+		textDisplay.innerHTML = sentences[currentIndex];
 		currentIndex = (currentIndex + 1) % sentences.length;
 
 		// Initial entrance animation

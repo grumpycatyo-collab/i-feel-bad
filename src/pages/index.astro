@@ -1,5 +1,17 @@
 ---
 import '../styles/index.css';
+import * as sentencesFile from '../data/sentences.md';
+
+// Get the compiled HTML content
+const sentencesContent = await sentencesFile.compiledContent();
+
+// Split by paragraph tags to get individual sentences
+const rawSentences = sentencesContent.split('</p>').filter((s: string) => s.trim());
+
+// Parse the HTML sentences - remove <p> tags and clean up
+const sentences = rawSentences.map((html: string) => {
+	return html.replace(/<p>/g, '').trim();
+}).filter((s: string) => s);
 ---
 
 <html lang="en">
@@ -15,10 +27,12 @@ import '../styles/index.css';
 			<h1 id="text-display"></h1>
 		</div>
 	</body>
+	<script define:vars={{ sentences }} is:inline>
+		window.sentences = sentences;
+	</script>
 	<script>
 		import { initTextRotation } from '../scripts/index.js';
-		import sentencesData from '../data/sentences.json';
 
-		initTextRotation(sentencesData.sentences);
+		initTextRotation((window as any).sentences);
 	</script>
 </html>
