@@ -3,6 +3,9 @@ import { animate } from 'motion';
 export async function showWelcome(textDisplay, onComplete) {
 	if (!textDisplay) return;
 
+	// Add welcome class for special styling
+	textDisplay.classList.add('welcome-text');
+
 	// Random greeting
 	const greetings = ['buddy', 'pal', 'friend'];
 	const randomGreeting = greetings[Math.floor(Math.random() * greetings.length)];
@@ -62,6 +65,9 @@ export async function showWelcome(textDisplay, onComplete) {
 			easing: 'ease-in-out'
 		}
 	).finished;
+
+	// Remove welcome class
+	textDisplay.classList.remove('welcome-text');
 
 	// Call completion callback
 	if (onComplete) {
