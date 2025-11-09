@@ -51,10 +51,38 @@ export async function showWelcome(textDisplay, onComplete) {
 		}
 	).finished;
 
+	// Wait 2 seconds 
+	await new Promise(resolve => setTimeout(resolve, 2000));
+
+	// Fade out second message
+	await animate(
+		textDisplay,
+		{
+			opacity: 0
+		},
+		{
+			duration: 0.5,
+			easing: 'ease-in-out'
+		}
+	).finished;
+
+	// Show third welcome message
+	textDisplay.innerHTML = "<em>Don't you worry. I gotchu homie!</em>";
+	await animate(
+		textDisplay,
+		{
+			opacity: 1
+		},
+		{
+			duration: 0.5,
+			easing: 'ease-in-out'
+		}
+	).finished;
+
 	// Wait 5 seconds (longer pause)
 	await new Promise(resolve => setTimeout(resolve, 5000));
 
-	// Fade out second message
+	// Fade out third message
 	await animate(
 		textDisplay,
 		{
